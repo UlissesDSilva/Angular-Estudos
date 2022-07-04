@@ -1,0 +1,36 @@
+<section>
+
+  <article>
+    <h3>Event Binding</h3>
+    <div>
+      <!-- Parênteses ao redor do evento -->
+      <button
+        class="btn btn-primary"
+        (click)="btn()"
+      >
+        Click
+      </button>
+
+      <br><br>
+
+      <input type="text"
+      #fieldInput
+      (keyup)="onKeyUp($event)"
+      (keyup.enter)="save(fieldInput.value)"
+      (blur)="save(fieldInput.value)">
+
+      <p>Valor do input {{ txt }}</p>
+      <p>Valor salvo: {{ valueSave }}</p>
+
+      <p
+        [style.color]="'white'"
+        (mouseover)="isMouseOverOrOut()"
+        (mouseout)="isMouseOverOrOut()"
+        [style.background]="isMouseOver ? 'red' : 'blue'">
+        Mouseover
+      </p>
+
+    </div>
+  </article>
+
+</section>
