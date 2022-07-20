@@ -13,6 +13,7 @@
 
       <br><br>
 
+      <!-- $: referencia ao event que estar ocorrendo -->
       <input type="text"
       #fieldInput
       (keyup)="onKeyUp($event)"
@@ -23,10 +24,9 @@
       <p>Valor salvo: {{ valueSave }}</p>
 
       <p
-        [style.color]="'white'"
         (mouseover)="isMouseOverOrOut()"
         (mouseout)="isMouseOverOrOut()"
-        [style.background]="isMouseOver ? 'red' : 'blue'">
+        [class.highlight]="isMouseOver">
         Mouseover
       </p>
 

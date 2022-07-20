@@ -18,7 +18,7 @@ export class EventBindingComponent implements OnInit {
     this.txt = (<HTMLInputElement>event.target).value
   }
 
-  save(event: any) {
+  save(event: any | null) {
     this.valueSave = event
   }
 
