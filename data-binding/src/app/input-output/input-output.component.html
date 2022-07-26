@@ -1,0 +1,15 @@
+<section>
+  <article>
+    <h3>Input/Output Properties</h3>
+
+    <app-curso [curso]="nomeCurso" [level]="level"></app-curso>
+    <br>
+
+    <count
+    [valor]="valorInicial"
+    (mudouValor)="onMudouValor($event)"
+    >
+
+    </count>
+  </article>
+</section>
