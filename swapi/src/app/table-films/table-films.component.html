@@ -1,0 +1,31 @@
+<div class="table">
+  <div class="search">
+    <input
+      #valueInput
+      class="search-input"
+      type="text"
+      placeholder="Pesquise ao pressionar 'Enter' ou ao clicar na lupa"
+      (keyup)="changeInputValue(valueInput.value)"
+      (keyup.enter)="searchFilmByName(valueInput.value)"
+    >
+    <fa-icon [icon]="search" (click)="searchFilmByName(inputValue)"></fa-icon>
+    <fa-icon [icon]="clear" (click)="getFilms()"></fa-icon>
+  </div>
+
+  <table class="table-items">
+    <thead>
+      <tr>
+        <th>Filme</th>
+        <th>Diretor</th>
+        <th>Episode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let film of films">
+        <td> {{ film.title }} </td>
+        <td> {{ film.director }} </td>
+        <td> {{ film.episode_id }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

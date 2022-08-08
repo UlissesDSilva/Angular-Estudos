@@ -1,0 +1,33 @@
+<div class="table">
+  <div class="search">
+    <input
+      #valueInput
+      class="search-input"
+      type="text"
+      placeholder="Pesquise ao pressionar 'Enter' ou ao clicar na lupa"
+      (keyup)="changeInputValue(valueInput.value)"
+      (keyup.enter)="searchCharacterByName(valueInput.value)"
+    >
+    <fa-icon [icon]="search" (click)="searchCharacterByName(inputValue)"></fa-icon>
+    <fa-icon [icon]="clear" (click)="clearSearch()"></fa-icon>
+  </div>
+
+  <table class="table-items">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sexo Biológico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let character of characters">
+        <td> {{ character.name }} </td>
+        <td> {{ character.gender }} </td>
+      </tr>
+    </tbody>
+    <div class="navigation">
+      <fa-icon [icon]="previous" (click)="previousPage()" [style.display]="currentPage == 1 ? 'none' : 'block'" class="navigation-item"></fa-icon>
+      <fa-icon [icon]="next" (click)="nextPage()" [style.display]="currentPage == 9 ? 'none' : 'block'" class="navigation-item"></fa-icon>
+    </div>
+  </table>
+</div>

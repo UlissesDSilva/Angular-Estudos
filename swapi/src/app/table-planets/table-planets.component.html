@@ -1,0 +1,35 @@
+<div class="table">
+  <div class="search">
+    <input
+      #valueInput
+      class="search-input"
+      type="text"
+      placeholder="Pesquise ao pressionar 'Enter' ou ao clicar na lupa"
+      (keyup)="changeInputValue(valueInput.value)"
+      (keyup.enter)="searchPlanetByName(valueInput.value)"
+    >
+    <fa-icon [icon]="search" (click)="searchPlanetByName(inputValue)"></fa-icon>
+    <fa-icon [icon]="clear" (click)="clearSearch()"></fa-icon>
+  </div>
+
+  <table class="table-items">
+    <thead>
+      <tr>
+        <th>Planeta</th>
+        <th>Clima</th>
+        <th>Terreno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planet of planets">
+        <td> {{ planet.name }} </td>
+        <td> {{ planet.climate }} </td>
+        <td> {{ planet.terrain }} </td>
+      </tr>
+    </tbody>
+    <div class="navigation">
+      <fa-icon [icon]="previous" (click)="previousPage()" [style.display]="currentPage == 1 ? 'none' : 'block'" class="navigation-item"></fa-icon>
+      <fa-icon [icon]="next" (click)="nextPage()" [style.display]="currentPage == 6 ? 'none' : 'block'" class="navigation-item"></fa-icon>
+    </div>
+  </table>
+</div>
